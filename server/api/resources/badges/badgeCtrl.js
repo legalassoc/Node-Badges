@@ -53,7 +53,7 @@ async function getBadge(sfid, assoc,req,res) {
   	.then(res => {
   		return res.data.access_token;
   	})
-  	.catch(err=> console.log('error when getting token', err.response.statusText, err.response.status))
+  	.catch(err=> console.log('error when getting token', err.response.statusText, err.response))
   let member = await axios({
     method: 'get',
     url: `https://lamprod.my.salesforce.com/services/data/v30.0/sobjects/Contact/${sfid}`,

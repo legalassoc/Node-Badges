@@ -64,7 +64,7 @@ async function getBadge(sfid, assoc,req,res) {
       return res.data;
     })
     .catch(err => {
-      console.log('error on contact grab', err.response.message, err.response.status);
+      console.log('error on contact grab', err.response, err.response.status);
       return false;
     });
   let isValid = false;

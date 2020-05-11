@@ -53,7 +53,7 @@ async function getBadge(sfid, assoc,req,res) {
   	.then(res => {
   		return res.data.access_token;
   	})
-  	.catch(err=> console.log('error', err.response))
+  	.catch(err=> console.log('error', err.response.message, err.response.status))
   let member = await axios({
     method: 'get',
     url: `https://lamprod.my.salesforce.com/services/data/v30.0/sobjects/Contact/${sfid}`,
@@ -64,7 +64,7 @@ async function getBadge(sfid, assoc,req,res) {
       return res.data;
     })
     .catch(err => {
-      console.log('error on contact grab', err.response);
+      console.log('error on contact grab', err.response.message, err.response.status);
       return false;
     });
   let isValid = false;

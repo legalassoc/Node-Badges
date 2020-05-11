@@ -48,7 +48,7 @@ async function getBadge(sfid, assoc,req,res) {
   let clientId = '3MVG9mclR62wycM2iQebdxuMeCM7moEvm3wlMKZc14g81OnuAk3fS7NZVWIh1qQqMB01F0CMo0PVZbW_.NeZH';
   let clientSecret = '4E73B4E3DA565780E7B7E57919C8B236951EA19FB91D5CD4EE4A0794CB91FFE5';
   let username = 'lamtech%40associationsmgt.com';
-  let password = '430Technology%21OiKNQ1SHEV9FoBYp2MFuzeII';
+  let password = '3p6SIixC0Z8n';
   let token = await axios.post(`https://login.salesforce.com/services/oauth2/token?grant_type=${grantType}&client_id=${clientId}&client_secret=${clientSecret}&username=${username}&password=${password}`)
   	.then(res => {
   		return res.data.access_token;

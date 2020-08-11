@@ -9,14 +9,22 @@ const NodeCache = require( "node-cache" );
 const memberCache = new NodeCache({ stdTTL: 1440  });
 
 const niceName = (slug) => {
-  let assoc = slug.split('top-')[1];
-  let mshipType = '';
-  if (assoc === '40-under-40') {
-    mshipType = '40 Under 40';
-  } else {
-    mshipType = '100'
+  let assoc = slug.split('_')[0];
+  let mshipType = slug.split('top-')[1];
+  console.log(assoc + ' ' + mshipType);
+  if ((mshipType === '40-under-40' && assoc == 'NBL') || (mshipType === '40-under-40' && assoc == slug) ) {
+    return `NBL - Top 40 Under 40`;
+  } else if((mshipType === '100' && assoc == 'NBL') || (mshipType === '100' && assoc == slug)) {
+    return `NBL - Top 100`;
   }
-  return `NBL - Top ${mshipType}`;
+  else if (mshipType === '40-under-40' && assoc === 'NTL') {
+    return `NTL - Top 40 Under 40`;
+  } else if(mshipType === '100' && assoc === 'NTL') {
+    return `NTL - Top 100`;
+  }
+  else{
+  return `NTL - Top 100`;
+}
 }
 async function getBadge(sfid, assoc,req,res) {
   //check if key exists & how long ttl
@@ -26,17 +34,32 @@ async function getBadge(sfid, assoc,req,res) {
     console.log('cache ttl', ts,value, sfid);
     if(ts > 0) {
       let mapSfidAssocs = value.associations.map((asc) => {
-        if(asc.isValid && assoc === 'top-100') {
-          let file = __dirname + `/success.png`;
+        if((asc.isValid && assoc === 'NBL_top-100') || (asc.isValid && assoc === 'top-100')) {
+          let file = __dirname + `/NBL-100-success.png`;
           return res.sendFile(file);
-        } else if (!asc.isValid && assoc === 'top-100'){
-          let file = __dirname + `/error.png`;
+        } else if ((!asc.isValid && assoc === 'NBL_top-100') || (!asc.isValid && assoc === 'top-100')){
+          let file = __dirname + `/NBL-100-error.png`;
           return res.sendFile(file);
-        } else if (asc.isValid && assoc === 'top-40-under-40') {
-          let file = __dirname + `/success40.png`;
+        } else if ((asc.isValid && assoc === 'NBL_top-40-under-40') || (asc.isValid && assoc === 'top-40-under-40')) {
+          let file = __dirname + `/NBL-40-success.png`;
+          return res.sendFile(file);
+        } else if ((!asc.isValid && assoc === 'NBL_top-40-under-40') || (!asc.isValid && assoc === 'top-40-under-40')) {
+          let file = __dirname + `/NBL-40-error.png`;
+          return res.sendFile(file);
+        } else if (asc.isValid && assoc === 'NTL_top-100') {
+          let file = __dirname + `/NTL-100-success.png`;
+          return res.sendFile(file);
+        } else if (!asc.isValid && assoc === 'NTL_top-100') {
+          let file = __dirname + `/NTL-100-error.png`;
+          return res.sendFile(file);
+        } else if (asc.isValid && assoc === 'NTL_top-40-under-40') {
+          let file = __dirname + `/NTL-40-success.png`;
+          return res.sendFile(file);
+        } else if (asc.isValid && assoc === 'NTL_top-40-under-40') {
+          let file = __dirname + `/NTL-40-error.png`;
           return res.sendFile(file);
         } else {
-          let file = __dirname + `/error40.png`;
+          let file = __dirname + `/Bad-URL.jpg`;
           return res.sendFile(file);
         }
       });
@@ -75,7 +98,7 @@ async function getBadge(sfid, assoc,req,res) {
         isValid = true;
         let obj = {
           associations: [{
-            association: assoc,
+            association: niceName(assoc),
             isValid: true,
           }],
         }
@@ -86,17 +109,32 @@ async function getBadge(sfid, assoc,req,res) {
       }
     })
   }
-  if(isValid && assoc === 'top-100') {
-  	let file = __dirname + `/success.png`;
+  if((isValid && assoc === 'NBL_top-100') || (isValid && assoc === 'top-100')) {
+  	let file = __dirname + `/NBL-100-success.png`;
  		return res.sendFile(file);
-  } else if (!isValid && assoc === 'top-100'){
-  	let file = __dirname + `/error.png`;
+  } else if ((!isValid && assoc === 'NBL_top-100') || (!isValid && assoc === 'top-100')) {
+  	let file = __dirname + `/NBL-100-error.png`;
  		return res.sendFile(file);
-  } else if (isValid && assoc === 'top-40-under-40') {
-    let file = __dirname + `/success40.png`;
+  } else if ((isValid && assoc === 'NBL_top-40-under-40') || (isValid && assoc === 'top-40-under-40')) {
+    let file = __dirname + `/NBL-40-success.png`;
     return res.sendFile(file);
+  } else if ((!isValid && assoc === 'NBL_top-40-under-40') || (!isValid && assoc === 'top-40-under-40')) {
+    let file = __dirname + `/NBL-40-error.png`;
+    return res.sendFile(file);
+  } else if (isValid && assoc === 'NTL_top-100') {
+  	let file = __dirname + `/NTL-100-success.png`;
+ 		return res.sendFile(file);
+  } else if (!isValid && assoc === 'NTL_top-100') {
+  	let file = __dirname + `/NTL-100-error.png`;
+ 		return res.sendFile(file);
+  } else if (isValid && assoc === 'NTL_top-40-under-40') {
+  	let file = __dirname + `/NTL-40-success.png`;
+ 		return res.sendFile(file);
+  } else if (isValid && assoc === 'NTL_top-40-under-40') {
+  	let file = __dirname + `/NTL-40-error.png`;
+ 		return res.sendFile(file);
   } else {
-    let file = __dirname + `/error40.png`;
+    let file = __dirname + `/Bad-URL.jpg`;
     return res.sendFile(file);
   }
   return res.status(200).json({message: `error id  was not nblmember instead it was ${sfid}`,});

@@ -9,17 +9,17 @@ const NodeCache = require( "node-cache" );
 const memberCache = new NodeCache({ stdTTL: 1440  });
 
 const niceName = (slug) => {
-  let assoc = slug.split('_')[0];
+  let assocSlug = slug.split('_')[0];
   let mshipType = slug.split('top-')[1];
-  console.log(assoc + ' ' + mshipType);
-  if ((mshipType == '40-under-40' && assoc == 'NBL') || (mshipType == '40-under-40' && assoc == slug) ) {
+  console.log(assocSlug + ' ' + mshipType);
+  if ((mshipType == '40-under-40' && assocSlug == 'NBL') || (mshipType == '40-under-40' && assocSlug == slug) ) {
     return `NBL - Top 40 Under 40`;
-  } else if((mshipType == '100' && assoc == 'NBL') || (mshipType == '100' && assoc == slug)) {
+  } else if((mshipType == '100' && assocSlug == 'NBL') || (mshipType == '100' && assocSlug == slug)) {
     return `NBL - Top 100`;
   }
-  else if (mshipType == '40-under-40' && assoc == 'NTL') {
+  else if (mshipType == '40-under-40' && assocSlug == 'NTL') {
     return `NTL - Top 40 Under 40`;
-  } else if(mshipType == '100' && assoc == 'NTL') {
+  } else if(mshipType == '100' && assocSlug == 'NTL') {
     return `NTL - Top 100`;
   }
   else{

@@ -12,14 +12,14 @@ const niceName = (slug) => {
   let assoc = slug.split('_')[0];
   let mshipType = slug.split('top-')[1];
   console.log(assoc + ' ' + mshipType);
-  if ((mshipType === '40-under-40' && assoc == 'NBL') || (mshipType === '40-under-40' && assoc == slug) ) {
+  if ((mshipType == '40-under-40' && assoc == 'NBL') || (mshipType == '40-under-40' && assoc == slug) ) {
     return `NBL - Top 40 Under 40`;
-  } else if((mshipType === '100' && assoc == 'NBL') || (mshipType === '100' && assoc == slug)) {
+  } else if((mshipType == '100' && assoc == 'NBL') || (mshipType == '100' && assoc == slug)) {
     return `NBL - Top 100`;
   }
-  else if (mshipType === '40-under-40' && assoc === 'NTL') {
+  else if (mshipType == '40-under-40' && assoc == 'NTL') {
     return `NTL - Top 40 Under 40`;
-  } else if(mshipType === '100' && assoc === 'NTL') {
+  } else if(mshipType == '100' && assoc == 'NTL') {
     return `NTL - Top 100`;
   }
   else{

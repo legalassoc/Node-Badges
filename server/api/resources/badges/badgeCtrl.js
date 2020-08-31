@@ -18,12 +18,12 @@ const niceName = (slug) => {
     return `NBL - Top 100`;
   }
   else if (mshipType == '40-under-40' && assocSlug == 'NTL') {
-    return `NTL - Top 40 Under 40`;
+    return `NTL - Civil Plaintiff - Top 40 under 40`;
   } else if(mshipType == '100' && assocSlug == 'NTL') {
-    return `NTL - Top 100`;
+    return `NTL - Civil Plaintiff - Top 100`;
   }
   else{
-  return `NTL - Top 100`;
+  return `NTL - Civil Plaintiff - Top 100`;
 }
 }
 async function getBadge(sfid, assoc,req,res) {

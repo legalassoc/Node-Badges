@@ -31,7 +31,7 @@ const niceName = (slug) => {
   else if(mshipType == 'national-brain-injury' && assocSlug == 'NTL') {
     return `NTL - National Brain Injury - Top 25`;
   }
-  else if(mshipType == 'enviromental' && assocSlug == 'NTL') {
+  else if(mshipType == 'environmental' && assocSlug == 'NTL') {
     return `NTL - Environmental - Top 10`;
   }
   else if(mshipType == 'class-action' && assocSlug == 'NTL') {
@@ -144,11 +144,11 @@ async function getBadge(sfid, assoc,req,res) {
           let file = __dirname + `/BITLA-Top-25-Inactive.png`;
           return res.sendFile(file);
         }
-        else if (asc.isValid && assoc === 'NTL_enviromental') {
+        else if (asc.isValid && assoc === 'NTL_environmental') {
           let file = __dirname + `/ETLA-Top-10.png`;
           return res.sendFile(file);
         } 
-        else if (!asc.isValid && assoc === 'NTL_enviromental') {
+        else if (!asc.isValid && assoc === 'NTL_environmental') {
           let file = __dirname + `/ETLA-Top-10-Inactive.png`;
           return res.sendFile(file);
         }
@@ -240,11 +240,11 @@ async function getBadge(sfid, assoc,req,res) {
           let file = __dirname + `/WHTLA-Top-10-Inactive.png`;
           return res.sendFile(file);
         }
-        else if (asc.isValid && assoc === 'NTL_product-liability') {
+        else if (asc.isValid && assoc === 'NTL_products-liability') {
           let file = __dirname + `/PrLTLA-Top-25.png`;
           return res.sendFile(file);
         } 
-        else if (!asc.isValid && assoc === 'NTL_product-liability') {
+        else if (!asc.isValid && assoc === 'NTL_products-liability') {
           let file = __dirname + `/PrLTLA-Top-25-Inactive.png`;
           return res.sendFile(file);
         }
@@ -380,11 +380,11 @@ async function getBadge(sfid, assoc,req,res) {
     let file = __dirname + `/BITLA-Top-25-Inactive.png`;
     return res.sendFile(file);
   }
-  else if (isValid && assoc === 'NTL_enviromental') {
+  else if (isValid && assoc === 'NTL_environmental') {
     let file = __dirname + `/ETLA-Top-10.png`;
     return res.sendFile(file);
   } 
-  else if (!isValid && assoc === 'NTL_enviromental') {
+  else if (!isValid && assoc === 'NTL_environmental') {
     let file = __dirname + `/ETLA-Top-10-Inactive.png`;
     return res.sendFile(file);
   }
@@ -476,11 +476,11 @@ async function getBadge(sfid, assoc,req,res) {
     let file = __dirname + `/WHTLA-Top-10-Inactive.png`;
     return res.sendFile(file);
   }
-  else if (isValid && assoc === 'NTL_product-liability') {
+  else if (isValid && assoc === 'NTL_products-liability') {
     let file = __dirname + `/PrLTLA-Top-25.png`;
     return res.sendFile(file);
   } 
-  else if (!isValid && assoc === 'NTL_product-liability') {
+  else if (!isValid && assoc === 'NTL_products-liability') {
     let file = __dirname + `/PrLTLA-Top-25-Inactive.png`;
     return res.sendFile(file);
   }

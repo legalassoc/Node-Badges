@@ -203,7 +203,16 @@ async function getBadge(sfid, assoc,req,res) {
   } else if (isValid && assoc === 'NTL_top-40-under-40') {
   	let file = __dirname + `/NTL-40-error.png`;
  		return res.sendFile(file);
-  } else {
+  }
+  else if (isValid && assoc === 'NTL_motor-vehicle') {
+    let file = __dirname + `/MVTLA-Top-25.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_motor-vehicle') {
+    let file = __dirname + `/MVTLA-Top-25-Inactive.png`;
+    return res.sendFile(file);
+  }
+   else {
     let file = __dirname + `/Bad-URL.jpg`;
     return res.sendFile(file);
   }

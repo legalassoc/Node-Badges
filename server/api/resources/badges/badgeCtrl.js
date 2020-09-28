@@ -22,6 +22,66 @@ const niceName = (slug) => {
   } else if(mshipType == '100' && assocSlug == 'NTL') {
     return `NTL - Civil Plaintiff - Top 100`;
   }
+  else if(mshipType == 'motor-vehicle' && assocSlug == 'NTL') {
+    return `NTL - Motor Vehicle - Top 25`;
+  }
+  else if(mshipType == 'national-aviation' && assocSlug == 'NTL') {
+    return `NTL - National Aviation - Top 10`;
+  }
+  else if(mshipType == 'national-brain-injury' && assocSlug == 'NTL') {
+    return `NTL - National Brain Injury - Top 25`;
+  }
+  else if(mshipType == 'enviromental' && assocSlug == 'NTL') {
+    return `NTL - Environmental - Top 10`;
+  }
+  else if(mshipType == 'class-action' && assocSlug == 'NTL') {
+    return `NTL - Class Action - Top 25`;
+  }
+  else if(mshipType == 'railroad-accident' && assocSlug == 'NTL') {
+    return `NTL - Railroad Accident - Top 10`;
+  }
+  else if(mshipType == 'workers-compensation' && assocSlug == 'NTL') {
+    return `NTL - Workers Compensation - Top 25`;
+  }
+  else if(mshipType == 'national-women-trial-lawyers' && assocSlug == 'NTL') {
+    return `NTL - National Women Trial Lawyers - Top 25`;
+  }
+  else if(mshipType == 'business-tort' && assocSlug == 'NTL') {
+    return `NTL - Business Tort - Top 10`;
+  }
+  else if(mshipType == 'national-asbestos-mesothelioma' && assocSlug == 'NTL') {
+    return `NTL - National Asbestos/Mesothelioma - Top 10`;
+  }
+  else if(mshipType == 'national-latino-trial-lawyers' && assocSlug == 'NTL') {
+    return `NTL - National Latino Trial Lawyers - Top 10`;
+  }
+  else if(mshipType == 'insurance-bad-faith' && assocSlug == 'NTL') {
+    return `NTL - Insurance Bad Faith - Top 10`;
+  }
+  else if(mshipType == 'medical-malpractice' && assocSlug == 'NTL') {
+    return `NTL - Medical Malpractice - Top 25`;
+  }
+  else if(mshipType == 'nursing-home' && assocSlug == 'NTL') {
+    return `NTL - Nursing Home - Top 10`;
+  }
+  else if(mshipType == 'wage-and-hour' && assocSlug == 'NTL') {
+    return `NTL - Wage and Hour - Top 10`;
+  }
+  else if(mshipType == 'products-liability' && assocSlug == 'NTL') {
+    return `NTL - Products Liability - Top 25`;
+  }
+  else if(mshipType == 'mass-tort' && assocSlug == 'NTL') {
+    return `NTL - Mass Tort - Top 25`;
+  }
+  else if(mshipType == 'trucking' && assocSlug == 'NTL') {
+    return `NTL - Trucking - Top 10`;
+  }
+  else if(mshipType == 'civil-rights-tla' && assocSlug == 'NTL') {
+    return `NTL - Civil Rights TLA - Top 10`;
+  }
+  else if(mshipType == 'national-trial-lawyers-for-womens-rights' && assocSlug == 'NTL') {
+    return `NTL - National Trial Lawyers for Womens Rights - Top 10`;
+  }
   else{
   return `NTL - Civil Plaintiff - Top 100`;
 }
@@ -55,10 +115,20 @@ async function getBadge(sfid, assoc,req,res) {
         } else if (asc.isValid && assoc === 'NTL_top-40-under-40') {
           let file = __dirname + `/NTL-40-success.png`;
           return res.sendFile(file);
-        } else if (asc.isValid && assoc === 'NTL_top-40-under-40') {
+        }
+        else if (!asc.isValid && assoc === 'NTL_top-40-under-40') {
           let file = __dirname + `/NTL-40-error.png`;
           return res.sendFile(file);
-        } else {
+        }
+         else if (asc.isValid && assoc === 'NTL_motor-vehicle') {
+          let file = __dirname + `/MVTLA-Top-25.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_motor-vehicle') {
+          let file = __dirname + `/MVTLA-Top-25-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else {
           let file = __dirname + `/Bad-URL.jpg`;
           return res.sendFile(file);
         }

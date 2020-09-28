@@ -128,6 +128,158 @@ async function getBadge(sfid, assoc,req,res) {
           let file = __dirname + `/MVTLA-Top-25-Inactive.png`;
           return res.sendFile(file);
         }
+        else if (asc.isValid && assoc === 'NTL_national-aviation') {
+          let file = __dirname + `/NATLA-Top-10.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_national-aviation') {
+          let file = __dirname + `/NATLA-Top-10-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_national-brain-injury') {
+          let file = __dirname + `/BITLA-Top-25.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_national-brain-injury') {
+          let file = __dirname + `/BITLA-Top-25-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_enviromental') {
+          let file = __dirname + `/ETLA-Top-10.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_enviromental') {
+          let file = __dirname + `/ETLA-Top-10-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_class-action') {
+          let file = __dirname + `/CATLA-Top-25.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_class-action') {
+          let file = __dirname + `/CATLA-Top-25-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_railroad-accident') {
+          let file = __dirname + `/RATLA-Top-10.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_railroad-accident') {
+          let file = __dirname + `/RATLA-Top-10-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_workers-compensation') {
+          let file = __dirname + `/WCTLA-Top-25.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_workers-compensation') {
+          let file = __dirname + `/WCTLA-Top-25-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_national-women-trial-lawyers') {
+          let file = __dirname + `/NWTLA-Top-25.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_national-women-trial-lawyers') {
+          let file = __dirname + `/NWTLA-Top-25-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_business-tort') {
+          let file = __dirname + `/BTTLA-Top-10.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_business-tort') {
+          let file = __dirname + `/BTTLA-Top-10-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_national-asbestos-mesothelioma') {
+          let file = __dirname + `/AMTLA-Top-10.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_national-asbestos-mesothelioma') {
+          let file = __dirname + `/AMTLA-Top-10-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_national-latino-trial-lawyers') {
+          let file = __dirname + `/NLTLA-Top-10.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_national-latino-trial-lawyers') {
+          let file = __dirname + `/NLTLA-Top-10-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_insurance-bad-faith') {
+          let file = __dirname + `/IBFTLA-Top-10.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_insurance-bad-faith') {
+          let file = __dirname + `/IBFTLA-Top-10-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_medical-malpractice') {
+          let file = __dirname + `/MMTLA-Top-25.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_medical-malpractice') {
+          let file = __dirname + `/MMTLA-Top-25-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_nursing-home') {
+          let file = __dirname + `/NHTLA-Top-10.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_nursing-home') {
+          let file = __dirname + `/NHTLA-Top-10-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_wage-and-hour') {
+          let file = __dirname + `/WHTLA-Top-10.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_wage-and-hour') {
+          let file = __dirname + `/WHTLA-Top-10-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_product-liability') {
+          let file = __dirname + `/PrLTLA-Top-25.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_product-liability') {
+          let file = __dirname + `/PrLTLA-Top-25-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_mass-tort') {
+          let file = __dirname + `/MTTLA-Top-25.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_mass-tort') {
+          let file = __dirname + `/MTTLA-Top-25-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_trucking') {
+          let file = __dirname + `/TTLA-Top-10.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_trucking') {
+          let file = __dirname + `/TTLA-Top-10-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_civil-rights-tla') {
+          let file = __dirname + `/CRTLA-Top-10.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_civil-rights-tla') {
+          let file = __dirname + `/CRTLA-Top-10-Inactive.png`;
+          return res.sendFile(file);
+        }
+        else if (asc.isValid && assoc === 'NTL_national-trial-lawyers-for-womens-rights') {
+          let file = __dirname + `/WRTLA-Top-10.png`;
+          return res.sendFile(file);
+        } 
+        else if (!asc.isValid && assoc === 'NTL_national-trial-lawyers-for-womens-rights') {
+          let file = __dirname + `/WRTLA-Top-10-Inactive.png`;
+          return res.sendFile(file);
+        }
         else {
           let file = __dirname + `/Bad-URL.jpg`;
           return res.sendFile(file);
@@ -210,6 +362,158 @@ async function getBadge(sfid, assoc,req,res) {
   } 
   else if (!isValid && assoc === 'NTL_motor-vehicle') {
     let file = __dirname + `/MVTLA-Top-25-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_national-aviation') {
+    let file = __dirname + `/NATLA-Top-10.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_national-aviation') {
+    let file = __dirname + `/NATLA-Top-10-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_national-brain-injury') {
+    let file = __dirname + `/BITLA-Top-25.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_national-brain-injury') {
+    let file = __dirname + `/BITLA-Top-25-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_enviromental') {
+    let file = __dirname + `/ETLA-Top-10.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_enviromental') {
+    let file = __dirname + `/ETLA-Top-10-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_class-action') {
+    let file = __dirname + `/CATLA-Top-25.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_class-action') {
+    let file = __dirname + `/CATLA-Top-25-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_railroad-accident') {
+    let file = __dirname + `/RATLA-Top-10.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_railroad-accident') {
+    let file = __dirname + `/RATLA-Top-10-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_workers-compensation') {
+    let file = __dirname + `/WCTLA-Top-25.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_workers-compensation') {
+    let file = __dirname + `/WCTLA-Top-25-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_national-women-trial-lawyers') {
+    let file = __dirname + `/NWTLA-Top-25.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_national-women-trial-lawyers') {
+    let file = __dirname + `/NWTLA-Top-25-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_business-tort') {
+    let file = __dirname + `/BTTLA-Top-10.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_business-tort') {
+    let file = __dirname + `/BTTLA-Top-10-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_national-asbestos-mesothelioma') {
+    let file = __dirname + `/AMTLA-Top-10.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_national-asbestos-mesothelioma') {
+    let file = __dirname + `/AMTLA-Top-10-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_national-latino-trial-lawyers') {
+    let file = __dirname + `/NLTLA-Top-10.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_national-latino-trial-lawyers') {
+    let file = __dirname + `/NLTLA-Top-10-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_insurance-bad-faith') {
+    let file = __dirname + `/IBFTLA-Top-10.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_insurance-bad-faith') {
+    let file = __dirname + `/IBFTLA-Top-10-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_medical-malpractice') {
+    let file = __dirname + `/MMTLA-Top-25.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_medical-malpractice') {
+    let file = __dirname + `/MMTLA-Top-25-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_nursing-home') {
+    let file = __dirname + `/NHTLA-Top-10.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_nursing-home') {
+    let file = __dirname + `/NHTLA-Top-10-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_wage-and-hour') {
+    let file = __dirname + `/WHTLA-Top-10.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_wage-and-hour') {
+    let file = __dirname + `/WHTLA-Top-10-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_product-liability') {
+    let file = __dirname + `/PrLTLA-Top-25.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_product-liability') {
+    let file = __dirname + `/PrLTLA-Top-25-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_mass-tort') {
+    let file = __dirname + `/MTTLA-Top-25.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_mass-tort') {
+    let file = __dirname + `/MTTLA-Top-25-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_trucking') {
+    let file = __dirname + `/TTLA-Top-10.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_trucking') {
+    let file = __dirname + `/TTLA-Top-10-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_civil-rights-tla') {
+    let file = __dirname + `/CRTLA-Top-10.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_civil-rights-tla') {
+    let file = __dirname + `/CRTLA-Top-10-Inactive.png`;
+    return res.sendFile(file);
+  }
+  else if (isValid && assoc === 'NTL_national-trial-lawyers-for-womens-rights') {
+    let file = __dirname + `/WRTLA-Top-10.png`;
+    return res.sendFile(file);
+  } 
+  else if (!isValid && assoc === 'NTL_national-trial-lawyers-for-womens-rights') {
+    let file = __dirname + `/WRTLA-Top-10-Inactive.png`;
     return res.sendFile(file);
   }
    else {

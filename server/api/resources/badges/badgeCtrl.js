@@ -1,5 +1,6 @@
 'use strict';
 
+//setting up node stuff
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -8,8 +9,13 @@ const axios = require('axios');
 const NodeCache = require( "node-cache" );
 const memberCache = new NodeCache({ stdTTL: 1440  });
 
+//this function returns the association url/slug into the same strings contained as the memberships inside of Salesforce this is used in the function of the API call to tell if a URL matches to a member's membership association. 
+//nbl has extra checks as it was the inital Association to use this server, and we had to change the URL structure.
+
 const niceName = (slug) => {
+  //get the association out of the url
   let assocSlug = slug.split('_')[0];
+  //get the membership out of the url
   let mshipType = slug.split('top-')[1];
   console.log(assocSlug + ' ' + mshipType);
   if ((mshipType == '40-under-40' && assocSlug == 'NBL') || (mshipType == '40-under-40' && assocSlug == slug) ) {
@@ -86,12 +92,16 @@ const niceName = (slug) => {
   return `NTL - Civil Plaintiff - Top 100`;
 }
 }
+//if we have this member cached in our cache, give them the badge that they match
 async function getBadge(sfid, assoc,req,res) {
   //check if key exists & how long ttl
   let value = memberCache.get(sfid);
   if ( value !== undefined ){
     let ts = memberCache.getTtl(sfid);
     console.log('cache ttl', ts,value, sfid);
+    //if the cache ttl is greater than 0, return the correct image
+    //nbl has extra checks as it was the inital Association to use this server, and we had to change the URL structure.
+
     if(ts > 0) {
       let mapSfidAssocs = value.associations.map((asc) => {
         if((asc.isValid && assoc === 'NBL_top-100') || (asc.isValid && assoc === 'top-100')) {
@@ -289,6 +299,7 @@ async function getBadge(sfid, assoc,req,res) {
     }
   }
 
+  //setup Salesforce API stuff
   let grantType = 'password';
   let clientId = '3MVG9mclR62wycM2iQebdxuMeCM7moEvm3wlMKZc14g81OnuAk3fS7NZVWIh1qQqMB01F0CMo0PVZbW_.NeZH';
   let clientSecret = '4E73B4E3DA565780E7B7E57919C8B236951EA19FB91D5CD4EE4A0794CB91FFE5';
@@ -312,10 +323,17 @@ async function getBadge(sfid, assoc,req,res) {
       console.log('error on contact grab', err.response.statusText, err.response.status);
       return false;
     });
+
+
+
+    //lets start our Salesforce API call and check if the URL should return a valid member badge or not.
   let isValid = false;
   if(member !== false && member.Contact_s_MembershipsList_aa__c !== null) {
+    //starting the loop
     let findMembership = await member.Contact_s_MembershipsList_aa__c.split(',').map((mship, index) => {
       let object = {};
+      //check to see if the Salesforce name for the membership matches the URL by using the niceName function near the top of this file. 
+      //If it matches, let's set the associations for this member into an object called obj and if it's falid or not so we can then use the valid variable in our code later and in the cached results
       if(mship === niceName(assoc)) {
         isValid = true;
         let obj = {
@@ -331,6 +349,9 @@ async function getBadge(sfid, assoc,req,res) {
       }
     })
   }
+
+  //if we have set isValid  to true let's return the right image depeneding on the slug.
+  //nbl has extra checks as it was the inital Association to use this server, and we had to change the URL structure.
   if((isValid && assoc === 'NBL_top-100') || (isValid && assoc === 'top-100')) {
   	let file = __dirname + `/NBL-100-success.png`;
  		return res.sendFile(file);

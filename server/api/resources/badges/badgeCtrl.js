@@ -23,7 +23,7 @@ const niceName = (slug) => {
   } else if((mshipType == '100' && assocSlug == 'NBL') || (mshipType == '100' && assocSlug == slug)) {
     return `NBL - Top 100`;
   }
-  else if (mshipType == '40-under-40' && assocSlug == 'NTL') {
+  else if (mshipType == '40' && assocSlug == 'NTL') {
     return `NTL - Civil Plaintiff - Top 40 under 40`;
   } else if(mshipType == '100' && assocSlug == 'NTL') {
     return `NTL - Civil Plaintiff - Top 100`;
@@ -122,11 +122,11 @@ async function getBadge(sfid, assoc,req,res) {
         } else if (!asc.isValid && assoc === 'NTL_top-100') {
           let file = __dirname + `/NTL-100-error.png`;
           return res.sendFile(file);
-        } else if (asc.isValid && assoc === 'NTL_top-40-under-40') {
+        } else if (asc.isValid && assoc === 'NTL_top-40') {
           let file = __dirname + `/NTL-40-success.png`;
           return res.sendFile(file);
         }
-        else if (!asc.isValid && assoc === 'NTL_top-40-under-40') {
+        else if (!asc.isValid && assoc === 'NTL_top-40') {
           let file = __dirname + `/NTL-40-error.png`;
           return res.sendFile(file);
         }
@@ -370,10 +370,10 @@ async function getBadge(sfid, assoc,req,res) {
   } else if (!isValid && assoc === 'NTL_top-100') {
   	let file = __dirname + `/NTL-100-error.png`;
  		return res.sendFile(file);
-  } else if (isValid && assoc === 'NTL_top-40-under-40') {
+  } else if (isValid && assoc === 'NTL_top-40') {
   	let file = __dirname + `/NTL-40-success.png`;
  		return res.sendFile(file);
-  } else if (isValid && assoc === 'NTL_top-40-under-40') {
+  } else if (isValid && assoc === 'NTL_top-40') {
   	let file = __dirname + `/NTL-40-error.png`;
  		return res.sendFile(file);
   }
